@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/60732127d0.js" crossorigin="anonymous"></script>
+    <title>PlentiHands</title>
+</head>
+
+<!-- Navigation Bar -->
+
+<header>
+  <div class="nav-left">
+    <h1 class="logo-text">PlentiHands</h1>
+  </div>
+
+  <div class="nav-middle">
+    <i class="fa-solid fa-bars open-menu-bar" style="color: #000000;" onclick="openSideNav()"></i>
+    <ul class="nav">
+        <i class="fa-solid fa-xmark close-menu-bar" style="color: #000000;" onclick="closeSideNav()"></i>
+      <li><a href="home.html" id="active">Home</a></li> 
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>        
+
+  <div class="nav-right">
+    <ul>
+      <li id="book-service"><a href="services.html" class="btn">Book A Service</a></li>
+      
+      <!-- Cart Icon -->
+   
+
+      <li class="dropdown">
+        <a href="#" class="dropbtn" id="acnt">Account</a>
+        <ul class="dropdown-content">
+          <li><a href="index.html">Sign Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-container">
+              <div class="hero-text">
+            <h1 class="h1"> WE RUN YOUR <i>ERRANDS</i>, YOU RUN YOUR <i>LIFE.</i></h1>
+
+            <p class="sub1">PlentiHands is your on-demand errand and task service, ready to handle life’s to-dos so you don’t have to. From quick deliveries to complex errands, our trusted Hands get it done anywhere, anytime.</p>
+
+            <button class="btn" onclick="window.location.href='services.html'">Book A Service</button>
+        </div>
+        <div class="hero-img">
+        </div>
+
+        </div>
+      
+    </div>
+
+    <!--sections-->
+       
+    <!-- About Section -->
+    <section class="sections"> 
+        <div class="subsec">
+            <div id="about">
+                <h1 class="subheads">Meet PlentiHands</h1>
+            <p class="sub1" style="color: #444;">PlentiHands was built on a simple idea, life is easier when you’ve got the right help. We know the daily hustle can be overwhelming: errands pile up, unexpected repairs pop out of nowhere, and sometimes you just need an extra pair of hands to get things done. </p>
+
+            <div class="abt-img-container">
+                <button class="btn" id="abt-btn" onclick="window.location.href='about.html'" >Learn More</button>
+            </div>
+            </div>
+        </div>
+    </section>
+       
+    <!-- Service Section -->
+    <section class="sections" >
+        <div class="subsec" id="service">
+            <div class="service-container">
+                <div class="service-text-container">
+                    <h2 class="subheads">How We Make Life <i>Easy</i></h2>
+                    <p class="sub1">We offer a wide range of services to make your life easier. Whether you need someone to run errands, help with home repairs, or just need an extra hand, PlentiHands is here for you.</p>
+                    
+                    <div class="service-btn-container">
+                        <button class="btn" id="service-btn1" onclick="window.location.href='services.html'">Book A Service</button>
+                    </div>
+                </div>
+            
+                
+                <div class="service-img-container">
+                    <div class="service-img"> 
+                        <img src="images/delivery-guy.jpg" alt="delivery guy" class="images" id="img1" >
+                        <img src="images/gardner.jpeg" alt="gardner"  class="images" id="img2">
+                        <img src="images/cleaner.jpg" alt="cleaner"  class="images" id="img3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualities Section -->
+    <section class="sections">
+        <div class="subsec" id="qualities">
+                <h1 class="subheads">Your <i>Trust,</i> Our <i>Priority</i></h1>
+                <p class="sub1" style="color: #444;">Because your time is precious, and you deserve help you can trust. From vetted professionals to fair pricing, we make sure every task is done right the first time. </p>
+
+                <div class="qua-img">
+                    <div class="Qimg">
+                  <img src="images/fair-price.png" alt="fair price" class="Q-images" ><figcaption class="caption">Fair Pricing</figcaption>
+                    </div>
+            
+                    <div class="Qimg">
+                    <img src="images/professionals.png" alt="vetted professionals" class="Q-images"> <figcaption class="caption">Vetted Professionals</figcaption>
+                    </div>
+
+                    <div class="Qimg">
+                    <img src="images/fast-delivery.png" alt="Fast delivery" class="Q-images"> <figcaption class="caption">Fast Delivery</figcaption>
+                    </div>
+
+                </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section class="sections">
+        <div class="subsec" id="contact">
+                   <h2 class="subheads">Let's Get In Touch</h2>
+                <div class="contact-container">
+                   
+                    <form action="" method="POST">
+                         <h3 class="sub1" style="color: #444;">We'd love to hear from you!</h3>
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="John Pratt">
+                              <br>                 
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" required placeholder="eg.johnpratt@gmail.com">
+                        <br>
+                              <label for="message">Message:</label>
+                        <input type="text" id="message" name="message" required>
+                        <br>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                
+                <div class="socials-container">
+                    <h3 class="sub1" style="display: flex; color: #444;">Send A Message</h3>
+        
+                    <a href="http://wa.me/233502744895" class="link">
+                        <i class="fa-brands fa-whatsapp fa-lg socials"></i> Whatsapp
+                    </a>
+                   
+                    </a>
+                    <a href="mailto:plentihands@gmail.com " class="link">
+                        <i class="fa-solid fa-envelope fa-lg socials"></i> Email
+                    </a>
+                    <a href="tel:+233592744895" class="link">
+                        <i class="fa-solid fa-phone fa-lg socials"></i> Call Us
+                    </a>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+    
+
+<footer>
+        <div class="footer-container">
+            <p class="footer-text">© 2025 PlentiHands. All rights reserved.</p>
+            <p class="footer-text">Privacy Policy | Terms of Service</p>
+        </div>
+
+           <div class="ft-links" style="display: flex; width: 100%;">
+                    <h3 class="sub1" style="display: flex;  color:  aliceblue;">Follow Us</h3>
+                    <a href="twitter.com" style="color:aliceblue">
+                        <i class="fa-brands fa-x-twitter fa-lg ft-socials" ></i> Twitter
+                    </a>
+    
+                    <a href="instagram.com" style="color:aliceblue">
+                        <i class="fa-brands fa-instagram fa-lg ft-socials" ></i> Instagram
+                    </a>
+                </div>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>

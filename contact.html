@@ -1,56 +1,110 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/60732127d0.js" crossorigin="anonymous"></script>
-    <title>Trend Spotlight</title>
+    <title>Contact Us</title> 
 </head>
+
+<header>
+  <div class="nav-left">
+    <h1 class="logo-text">PlentiHands</h1>
+  </div>
+
+  <div class="nav-middle">
+    <i class="fa-solid fa-bars open-menu-bar" style="color: #000000;" onclick="openSideNav()"></i>
+    <ul class="nav">
+        <i class="fa-solid fa-xmark close-menu-bar" style="color: #000000;" onclick="closeSideNav()"></i>
+      <li><a href="home.html">Home</a></li> 
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html" id="active">Contact</a></li>
+    </ul>
+  </div>        
+
+  <div class="nav-right">
+    <ul>
+      <li id="book-service"><a href="/services.html" class="btn">Book A Service</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Account</a>
+        <ul class="dropdown-content" >
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
 <body>
+  <div class="sections">
+    <div class="subsec">
 
-    <header>
-        <h1 class="ts">TREND SPOTLIGHT</h1>
-    </header>
-      <nav class="navbar">
-         <a href="index.html" >Home</a>
-         <a href="posts.html">Posts</a>
-         <a href="contact.html" class="active">Contact</a>
-         <a href="about.html">About</a>
-
-        <span class="dropdown">
-            <button class="cat">Categories</button>
-          <div class="content">
-            <a href="#terst">Politics</a>
-            <a href="">Business</a>
-            <a href="">Sports</a>
-            <a href="">Trends & Entertainment</a>
-          </div>
+         <section class="sections">
+        <div class="subsec" id="contact">
+                   <h2 class="subheads">Let's Get In Touch</h2>
+                <div class="contact-container">
+                   
+                    <form action="" method="POST">
+                         <h3 class="sub1" style="color: #444;">We'd love to hear from you!</h3>
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="John Pratt">
+                              <br>                 
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" required placeholder="eg.johnpratt@gmail.com">
+                        <br>
+                              <label for="message">Message:</label>
+                        <input type="text" id="message" name="message" required>
+                        <br>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                
+                <div class="socials-container">
+                    <h3 class="sub1" style="display: flex; color: #444;">Send A Message</h3>
         
-        </span>
-      </nav>
-
-
-
-    <main>
-       <section>
-        <h2>Contact Us</h2>
-        <p>If you have any questions, suggestions, or feedback, feel free to reach out to us. We value your input and strive to improve our content based on your needs.</p>
-
-        <h3>Email Us</h3>
-        <p>You can contact us via email at: <a href="mailto:support@trendspotlight.com">support@trendspotlight.com</a></p>
-        
-        <h3>Follow Us</h3>
-        <p>Stay updated with the latest trends and news by following us on our social media channels:</p>
-        <div id="social-media">
-            <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="http://wa.me/233502744895" class="link">
+                        <i class="fa-brands fa-whatsapp fa-lg socials"></i> Whatsapp
+                    </a>
+                   
+                    </a>
+                    <a href="mailto:plentihands@gmail.com " class="link">
+                        <i class="fa-solid fa-envelope fa-lg socials"></i> Email
+                    </a>
+                    <a href="tel:+233592744895" class="link">
+                        <i class="fa-solid fa-phone fa-lg socials"></i> Call Us
+                    </a>
+                    <br>
+                </div>
+            </div>
         </div>
-       </section>
-      
-    </main>
-</body>
+
+    </section>
+    
+    </div>
+  </div>
+
+
+    <script src="script.js"></script>
+
+  
+  <footer>
+        <div class="footer-container">
+            <p class="footer-text">© 2025 PlentiHands. All rights reserved.</p>
+            <p class="footer-text">Privacy Policy | Terms of Service</p>
+        </div>
+
+           <div style="display: flex;">
+                    <h3 class="sub1" style="display: flex;  color:  aliceblue;">Follow Us</h3>
+                    <a href="twitter.com" style="color:aliceblue">
+                        <i class="fa-brands fa-x-twitter fa-lg ft-socials" ></i> Twitter
+                    </a>
+    
+                    <a href="instagram.com" style="color:aliceblue">
+                        <i class="fa-brands fa-instagram fa-lg ft-socials" ></i> Instagram
+                    </a>
+                </div>
+    <script src="script.js" type="module"></script>
+</body> 
 </html>

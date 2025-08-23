@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Bookings - PlentiHands</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/60732127d0.js" crossorigin="anonymous"></script>
+  <style>
+    .cart-container {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .cart-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .cart-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .cart-item p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .remove-btn {
+      background: crimson;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .checkout {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .checkout-btn {
+      background: #0077cc;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <div class="nav-left">
+      <h1 class="logo-text">PlentiHands</h1>
+    </div>
+    <div class="nav-middle">
+      <ul class="nav">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <ul>
+        <li class="cart-icon">
+          <a href="cart.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cart-count">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="cart-container">
+    <h1>Your Bookings</h1>
+    <ul class="cart-items" id="cart-items"></ul>
+    
+    <div class="checkout">
+
+      <button class="checkout-btn" onclick='window.location.href="checkout.html"'>Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItemsList = document.getElementById("cart-items");
+    const cartCount = document.getElementById("cart-count");
+
+    // Render cart
+    function renderCart() {
+      cartItemsList.innerHTML = "";
+      cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.className = "cart-item";
+        li.innerHTML = `
+          <p>${item}</p>
+          <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+        `;
+        cartItemsList.appendChild(li);
+      });
+
+      cartCount.textContent = cart.length;
+    }
+
+    // Remove item
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>
