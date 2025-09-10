@@ -1,0 +1,99 @@
+
+*{ box-sizing: border-box;}
+
+@font-face {
+    font-family: 'HeadSemi';
+    src: url('fonts/HeadSemi.ttf');
+}
+@font-face {
+    font-family: 'inter';
+    src: url('fonts/Inter_28pt-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'S-sans';
+    src: url('fonts/SourceSans3-Medium.ttf');
+}
+
+
+body{
+  padding: 0;
+  width: 100%;
+ 
+  height: 100%;
+
+}
+
+main{
+  height: inherit;
+  width: inherit;
+}
+
+.description-container{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background-color: white;
+  padding: 5%;
+  border-radius: 10px;
+}
+
+.description-container-img{
+  border-radius: 10px;
+ width: 50%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.description-container-txt{
+  font-family: 'inter', 'sans-serif' ;
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+}
+
+.description-book-btn{
+  font-family: 'S-sans', sans-serif;
+    background-color: #1A4EF9;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    box-shadow: black 1px 1px 5px;
+    color: white;
+    margin-top: 20px; 
+    width: 50%;
+}
+
+.description-book-btn:hover{
+  background-color: #1336aa;
+  transition: .25s;
+}
+
+.cart {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #cc0000;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+#cart-count {
+  margin-left: 8px;
+  margin-top: 8px;
+}
+
+.checkout-btn {
+  margin-top: 20px;
+  background: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}

@@ -90,7 +90,7 @@
   </header>
 
   <div class="cart-container">
-    <h1>Your Bookings</h1>
+    <h1 class="h1">Your Bookings</h1>
     <ul class="cart-items" id="cart-items"></ul>
     
     <div class="checkout">
@@ -111,7 +111,8 @@
         const li = document.createElement("li");
         li.className = "cart-item";
         li.innerHTML = `
-          <p>${item}</p>
+          <p>${item.name} - ¢${item.price}</p>
+
           <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
         `;
         cartItemsList.appendChild(li);

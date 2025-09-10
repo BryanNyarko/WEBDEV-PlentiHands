@@ -26,36 +26,29 @@
     </ul>
   </div>        
 
-  <div class="nav-right">
+  
     <div class="nav-right">
   <ul>
     <!-- Cart Icon -->
     <li class="cart-icon">
       <a href="cart.html" target="_blank">
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-clipboard-list"></i>
         <span id="cart-count">0</span>
       </a>
     </li>
 
     <li class="dropdown">
-      <a href="#" class="dropbtn">Account</a>
-      <ul class="dropdown-content" >
-        <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-      </ul>
-    </li>
-  </ul>
-</div>
-    <ul>
-      <li class="dropdown">
-        <a href="#" class="dropbtn">Account</a>
-        <ul class="dropdown-content" >
-          <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">Sign Up</a></li>
+        <a href="#" class="dropbtn" id="acnt">Account</a>
+        <ul class="dropdown-content">
+            <li>
+                <button id="signout-btn">Sign Out</button>
+            </li>
+          
         </ul>
       </li>
-    </ul>
-  </div>
+  </ul>
+</div>
+
 </header>
 <body>
   
@@ -64,51 +57,37 @@
     <h1 class="h1">What We Offer</h1>
 
       <div class="service-list">
-        <div class="service-item">
-          <img src="images/delivery-guy.jpg" alt="delivery" class="service-mpg">
-          <p class="service-item-txt">Errands & Delivery</p>
-          <button class="s-btn" onclick="addToCart('Errands & Delivery', 50)">Add to Booking</button>
-        </div>
-
-        <div class="service-item" id="service-item2">
+          <div class="service-item" onclick="openServiceDescription('repairs')">
           <img src="images/repairs.jpg" alt="repairing" class="service-mpg">
           <p class="service-item-txt">Home Repairs & Maintenance</p>
-          <button class="s-btn" onclick="addToCart('Home Repairs & Maintenance', 50)">Add to Booking</button>
         </div>
 
-        <div class="service-item" id="service-item3">
+
+        <div class="service-item" onclick="openServiceDescription('delivery')">
+          <img src="images/delivery-guy.jpg" alt="delivery" class="service-mpg">
+          <p class="service-item-txt">Delivery & Errands</p>
+
+        </div>
+
+
+        <div class="service-item" onclick="openServiceDescription('cleaning')">
           <img src="images/cleaner.jpg" alt="cleaning" class="service-mpg">
           <p class="service-item-txt">Cleaning & Organization</p>
-          <button class="s-btn" onclick="addToCart('Cleaning & Organization', 50)">Add to Booking</button>
         </div>
 
-        <div class="service-item" id="service-item4">
-          <img src="images/events.jpg" alt="events" class="service-mpg">
+
+         <div class="service-item" onclick="openServiceDescription('events-org')">
+          <img src="images/events.jpg" alt="events-org" class="service-mpg">
           <p class="service-item-txt">Events & Catering Support</p>
-          <button class="s-btn" onclick="addToCart('Events & Catering Support', 50)">Add to Booking</button>
         </div>
 
-        <div class="service-item" id="service-item5">
+
+         <div class="service-item" onclick="openServiceDescription('gardening')">
           <img src="images/gardner.jpg" alt="gardening" class="service-mpg">
           <p class="service-item-txt">Gardening & Landscaping</p>
-          <button class="s-btn" onclick="addToCart('Gardening & Landscaping', 50)">Add to Booking</button>
         </div>
-
-        <div class="service-item" id="service-item6">
-          <img src="images/PA.jpg" alt="personal assistance" class="service-mpg">
-          <p class="service-item-txt">Personal Assistance</p>
-          <button class="s-btn" onclick="addToCart('Personal Assistance', 50)">Add to Booking</button>
-        </div>
-
-
-
-      </div>
-
-      <p class="sub1"></p>
-      </p>
-     
     
-</div>
+   </div>
 </div>
 
 
@@ -129,6 +108,7 @@
                         <i class="fa-brands fa-instagram fa-lg ft-socials" ></i> Instagram
                     </a>
                 </div>
+  </footer>
 <script src="script.js" type="module">
 
 </script>

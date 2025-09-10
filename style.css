@@ -251,7 +251,7 @@ header .open-menu-bar,header .close-menu-bar{display: none;}
     font-size: 1rem;
     color: #2d2d2d;
     margin-top: 10px;
-    max-width: 500px;
+    max-width: 100%;
 }
 
 .btn {
@@ -271,6 +271,10 @@ header .open-menu-bar,header .close-menu-bar{display: none;}
     transition: .25s;
     cursor: pointer;
     box-shadow: black 1px 1px 10px;
+}
+ 
+#main-page-book-btn{
+  font-size: 2rem;
 }
 
 .hero-img {

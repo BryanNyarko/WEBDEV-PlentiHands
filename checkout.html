@@ -6,13 +6,38 @@
   <title>Checkout - PlentiHands</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
     .checkout-container {
-      max-width: 800px;
+      max-width: 80%;
       margin: 50px auto;
       padding: 20px;
       background: #fff;
       border-radius: 8px;
       box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+      align-items: center;
+      justify-content: center;
+    }
+
+    #checkout-summary {
+      margin-bottom: 20px;
+      padding: 10px;
+      display: flex;
+      justify-items: center;
+      gap: 20%;
+    }
+
+    #checkout-items {
+      margin-bottom: 20px;
+      font-size: 1.1em;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
     }
 
     .checkout-container h1 {
@@ -20,8 +45,13 @@
       margin-bottom: 20px;
     }
 
-    .checkout-items {
-      margin-bottom: 20px;
+    #cart-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .checkout-items li {
@@ -74,105 +104,152 @@
       <ul class="nav">
         <li><a href="home.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="cart.html">Cart</a></li>
       </ul>
     </div>
-    <div class="nav-right">
-      <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> <span id="cart-count">0</span></a>
     </div>
   </header>
 
   <div class="checkout-container">
     <h1>Checkout</h1>
 
-    <ul class="checkout-items" id="checkout-items"></ul>
-    <p class="checkout-total" id="checkout-total">Total: $0</p>
+    <div id="checkout-summary">
 
-    <form class="checkout-form" id="checkout-form">
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="tel" placeholder="Phone Number" required>
-      <button type="submit">Confirm Booking</button>
-    </form>
+      <div id="checkout-items">
+      <h2>Your Booking</h2>
+      <ul id="cart-list"></ul>
+      <p class="checkout-total">Total: GHS <span id="checkout-total">0</span></p>
+    </div>
 
-    <p class="success-message" id="success-message" style="display:none;">
+
+     <form class="checkout-form" id="checkout-form">
+        <input type="text" id="cust-name" placeholder="Full Name" required>
+        <input type="email" id="cust-email" placeholder="Email Address" required>
+        <input type="tel" id="cust-phone" placeholder="Phone Number" required>
+        <input type="text" id="cust-address" placeholder="Address" required>
+        <input type="date" id="service-date" required>
+        <input type="time" id="service-time" required>
+        <input type="text" id="service-desc" placeholder="Describe Service" required>
+        <button type="submit" id="paystack-button">Pay with Paystack</button>
+      </form>
+
+
+   <p class="success-message"  style="display:none;">
       ✅ Booking confirmed! We’ll contact you soon.
     </p>
+  
+  </div>
   </div>
 
-  <script>
-    // Load cart from localStorage
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const checkoutItems = document.getElementById("checkout-items");
-    const checkoutTotal = document.getElementById("checkout-total");
+  <!-- Paystack inline script -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
 
-    function renderCheckout() {
-      checkoutItems.innerHTML = "";
-      let total = 0;
+  <script type="module">
+  // Import Firebase & Firestore
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-      cart.forEach((item, index) => {
-        total += item.price;
-        const li = document.createElement("li");
-        li.innerHTML = `
-          <span>${item.name}</span>
-          <span>$${item.price}</span>
-        `;
-        checkoutItems.appendChild(li);
-      });
+  // Firebase config (same as in auth.js)
+  const firebaseConfig = {
+    apiKey: "AIzaSyAI4GWCwyhQ8o5NatlfUXMxLiWP0InHuJU",
+    authDomain: "plentihands-2d968.firebaseapp.com",
+    projectId: "plentihands-2d968",
+    storageBucket: "plentihands-2d968.firebasestorage.app",
+    messagingSenderId: "956015881514",
+    appId: "1:956015881514:web:0350e11e7977e15ad80253",
+    measurementId: "G-PZ5KTF1F7Z"
+  };
 
-      checkoutTotal.textContent =` Total: $${total}`;
-      document.getElementById("cart-count").textContent = cart.length;
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Load cart items into summary
+  window.onload = function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartList = document.getElementById("cart-list");
+    let total = 0;
+
+    if (cart.length === 0) {
+      document.getElementById("checkout-items").innerHTML = "<p>No services selected.</p>";
+      return;
     }
 
-    renderCheckout();
+    cartList.innerHTML = "";
 
-    // Handle checkout form
-    document.getElementById("checkout-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      // Clear cart
-      localStorage.removeItem("cart");
-      document.getElementById("checkout-items").innerHTML = "";
-      document.getElementById("checkout-total").textContent = "Total: $0";
-      document.getElementById("cart-count").textContent = "0";
-
-      // Show success message
-      document.getElementById("success-message").style.display = "block";
+    cart.forEach(item => {
+      let li = document.createElement("li");
+      li.textContent = `${item.name} - GHS ${item.price}`;
+      cartList.appendChild(li);
+      total += item.price;
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const cartItems = document.getElementById("cart-items");
-  const totalElement = document.getElementById("cart-total");
+    document.getElementById("checkout-total").textContent = total;
+  };
 
-  if (cart.length === 0) {
-    cartItems.innerHTML = "<p>No bookings yet.</p>";
-    totalElement.textContent = "₵0";
-    return;
-  }
+  // Handle Paystack Payment
+  document.getElementById("checkout-form").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  let total = 0;
-  cart.forEach((item, index) => {
-    const div = document.createElement("div");
-    div.classList.add("cart-item");
-    div.innerHTML = `
-      <span>${item.name}</span>
-      <span>₵${item.price}+</span>
-      <button onclick="removeFromCart(${index})">Remove</button>
-    `;
-    cartItems.appendChild(div);
-    total += item.price;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    const order = {
+      customer: {
+        name: document.getElementById("cust-name").value,
+        email: document.getElementById("cust-email").value,
+        phone: document.getElementById("cust-phone").value,
+        address: document.getElementById("cust-address").value
+      },
+      schedule: {
+        date: document.getElementById("service-date").value,
+        time: document.getElementById("service-time").value
+      },
+      description: document.getElementById("service-desc").value,
+      services: cart,
+      total: cart.reduce((sum, item) => sum + item.price, 0),
+      createdAt: new Date().toISOString()
+    };
+
+    const totalAmount = order.total * 100; // GHS to pesewas
+
+    var handler = PaystackPop.setup({
+      key: "pk_test_ff196067e2e0f1ef70cbc696c52a872ce11b6b8b", 
+      email: order.customer.email,
+      amount: totalAmount,
+      currency: "GHS",
+      ref: "" + Math.floor((Math.random() * 1000000000) + 1),
+      callback: async function (response) {
+        alert("Payment complete! Reference: " + response.reference);
+
+        try {
+          // Save order in Firebase only after successful payment
+          await addDoc(collection(db, "orders"), {
+            ...order,
+            paymentRef: response.reference,
+            paid: true
+          });
+
+          console.log("Order saved to Firebase ✅");
+        } catch (error) {
+          console.error("Error saving order:", error);
+          alert("Order saved locally but failed to sync with Firebase.");
+        }
+
+        localStorage.removeItem("cart"); // clear cart
+        window.location.href = "success.html";
+      },
+      onClose: function () {
+        alert("Transaction was not completed, window closed.");
+      }
+    });
+
+    handler.openIframe();
   });
+</script>
 
-  totalElement.textContent = "₵" + total + "+";
-});
 
-function removeFromCart(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  location.reload(); // refresh to update cart view
-}
-  </script>
 </body>
 </html>

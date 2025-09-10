@@ -8,6 +8,7 @@
     font-family: 'inter';
     src: url('fonts/Inter_28pt-Regular.ttf');
 }
+
 body, html{
       height: 100%;
       width: 100%;
@@ -45,9 +46,9 @@ body, html{
     border-radius: 10px;
     height: auto;
     border:none;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     transition: transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.031),-1px -1px 10px rgba(0, 0, 0, 0.059);
     text-align: center;
     font-family: 'inter', sans-serif;
     font-size: 1.2em;
@@ -57,7 +58,7 @@ body, html{
     position: relative;
     }
 
-.service-item:hover{ transform: scale(1.03);
+.service-item:hover{ transform: scale(1.01);
     transition: 0.25s;}
 
 
@@ -76,12 +77,3 @@ body, html{
     color: #0e0d0d;
     margin-top: 10px;
     font-weight: 200;}
-
-    .s-btn{
-      background-color: rgb(46, 84, 142);
-      border:none;
-      padding: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      color: #d8d8d8;
-    }

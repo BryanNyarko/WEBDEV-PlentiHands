@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="service-description.css">
+    <script src="https://kit.fontawesome.com/60732127d0.js" crossorigin="anonymous"></script>
+    <title>PlentiHands - Service Description</title>
+</head>
+
+<header>
+  <div class="nav-left">
+    <h1 class="logo-text">PlentiHands</h1>
+  </div>
+
+    
+  <div class="nav-right">
+    <ul>
+      <li id="book-service"><a href="services.html" class="btn">Book A Service</a></li>
+      
+      <!-- Cart Icon -->
+      <li class="cart-icon">
+        <a href="cart.html" target="_blank">
+          <i class="fa-solid fa-clipboard-list"></i>
+          <span id="cart-count">0</span>
+        </a>
+  </div>
+</header>
+
+<body>
+
+  <main>
+
+      <div class="description-container" id="delivery-description-container">
+        <img src="images/delivery-guy.jpg" class="description-container-img">
+      
+      <div class="description-container-txt">
+       <h2>Delivery & Errands</h2>
+        <p> We run your errands and deliver right to your doorstep.  We pick up and deliver anything from groceries and prescriptions to dry cleaning and packages. We offer flexible scheduling, competitive pricing, and a commitment to reliable and efficient service.</p>
+
+        <button class="description-book-btn" id="book-delivery-btn" onclick="addToCart('Errands & Delivery', 100);">Book Service</button>
+
+                <button id="checkout-btn" class="checkout-btn" style="display:none;" onclick="window.location.href='checkout.html'"> Proceed to Checkout</button>
+      </div>
+    </div>
+
+
+     <div class="description-container" id="repair-description-container">
+        <img src="images/repairs.jpg" class="description-container-img">
+      <div class="description-container-txt">
+        <h2>Home repairs & Maintenance</h2>
+        <p> We provide comprehensive home repair and maintenance services to keep your property in top condition. From minor repairs like fixing leaky faucets and patching drywall to routine maintenance tasks such as gutter cleaning and seasonal inspections, we handle it all.</p>
+
+        <button class="description-book-btn" id="book-repairs-btn" onclick="addToCart('Home Repairs & Maintenance', 100);">Book Service</button>
+
+                <button id="checkout-btn" class="checkout-btn" style="display:none;" onclick="window.location.href='checkout.html'"> Proceed to Checkout</button>
+      </div>
+    </div>
+
+
+      <div class="description-container" id="cleaning-description-container">
+          <img src="images/cleaner.jpg" class="description-container-img">
+        
+        <div class="description-container-txt">
+          <h2>Cleaning</h2>
+          <p> Our cleaning service offers a thorough and reliable solution for all your cleaning needs. We provide a range of services, including regular house cleaning, deep cleaning, move-in/move-out cleaning, and specialized cleaning for specific areas.</p>
+  
+          <button class="description-book-btn" id="book-cleaning-btn" onclick="addToCart('Cleaning & Organization', 100);">Book Service</button>
+  
+                  <button id="checkout-btn" class="checkout-btn" style="display:none;" onclick="window.location.href='checkout.html'"> Proceed to Checkout</button>
+        </div>
+      </div>
+
+        
+      <div class="description-container" id="events-description-container">
+          <img src="images/events.jpg" class="description-container-img">
+        
+        <div class="description-container-txt">
+          <h2>Events & Catering Support</h2>
+          <p> We offer comprehensive event and catering support to make your special occasions seamless and memorable. Our services include event planning, venue selection, catering coordination, staffing, and on-site management. Whether you're planning a corporate event, wedding, or private party, we'll handle every detail with precision and creativity.</p>
+  
+          <button class="description-book-btn" id="book-events-btn" onclick="addToCart('Events & Catering Support', 100);">Book Service</button>
+  
+                  <button id="checkout-btn" class="checkout-btn" style="display:none;" onclick="window.location.href='checkout.html'"> Proceed to Checkout</button>
+        </div>
+      </div>
+
+
+      <div class="description-container" id="gardening-description-container"> 
+          <img src="images/gardner.jpg" class="description-container-img">
+        
+        <div class="description-container-txt">
+          <h2>Gardening & Landscaping</h2>
+          <p> Our gardening and landscaping services transform outdoor spaces into beautiful and functional areas. We offer a wide range of services, including landscape design, installation, lawn care, garden maintenance, and seasonal planting.</p>
+  
+          <button class="description-book-btn" id="book-gardening-btn" onclick="addToCart('Gardening & Landscaping', 100);">Book Service</button>
+  
+                  <button id="checkout-btn" class="checkout-btn" style="display:none;" onclick="window.location.href='checkout.html'"> Proceed to Checkout</button>
+        </div> 
+      </div>
+
+
+     
+  </main>
+  
+  
+<footer>
+        <div class="footer-container">
+            <p class="footer-text">© 2025 PlentiHands. All rights reserved.</p>
+            <p class="footer-text">Privacy Policy | Terms of Service</p>
+        </div>
+
+           <div class="ft-links" style="display: flex; width: 100%;">
+                    <h3 class="sub1" style="display: flex;  color:  aliceblue;">Follow Us</h3>
+                    <a href="twitter.com" style="color:aliceblue">
+                        <i class="fa-brands fa-x-twitter fa-lg ft-socials" ></i> Twitter
+                    </a>
+    
+                    <a href="instagram.com" style="color:aliceblue">
+                        <i class="fa-brands fa-instagram fa-lg ft-socials" ></i> Instagram
+                    </a>
+                </div>
+</footer>
+
+<script src="script.js" type="module">
+
+</script>
+</body>
+</html>
