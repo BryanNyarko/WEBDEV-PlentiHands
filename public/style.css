@@ -280,7 +280,7 @@ header .open-menu-bar,header .close-menu-bar{display: none;}
 .hero-img {
     height: 80%;
     width: 50%;
-    background-image: url('/images/hero-img.png');
+    background-image: url('images/hero-img.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -314,7 +314,7 @@ header .open-menu-bar,header .close-menu-bar{display: none;}
         height: 100%;
         margin-top: 20px;}
 
-.abt-img-container{background-image: linear-gradient(rgba(0,0,0,0.5)), url("/images/abt-img.png");
+.abt-img-container{background-image: linear-gradient(rgba(0,0,0,0.5)), url("images/abt-img.png");
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
