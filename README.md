@@ -4,11 +4,11 @@
 PlentiHands is a service-booking web application that helps users connect to service providers in diffrent fields
 
 
-## 🚀 Live Demo
+## Live Demo
 https://plentihands-2d968.web.app
 
 
-## 🛠 Tech Stack
+## Tech Stack
 - HTML
 - CSS
 - JavaScript
@@ -22,7 +22,7 @@ https://plentihands-2d968.web.app
 - CRUD operations for managing bookings
 
 
-## 👤 Author
+## Author
 **Nyarko Bryan**
 
 GitHub: https://github.com/BryanNyarko
